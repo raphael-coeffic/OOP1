@@ -150,20 +150,6 @@ public class GameLogic implements PlayableLogic {
 
                     theKing = (King) board[theKing.getPosition().getX()][theKing.getPosition().getY()];
 
-                    //                       TEST                         //
-                    ///////////////////////////////////////////////////////
-//                    if (this.getPieceAtPosition(new Position(7,1)) != null)
-//                        System.out.println(getPieceAtPosition(new Position(7,1)).getAllMovesQueue());
-//                    if (theKing.allMovesQueue.isEmpty())
-//                        System.out.println("EMPTY");
-//                    else System.out.println(theKing.allMovesQueue);
-//                    System.out.println(playerTwo.getNum_of_pieces());
-//                    System.out.println(this.boardPositions[4][1]);
-//                    if (this.getPieceAtPosition(new Position(3,4)) != null)
-//                        this.getPieceAtPosition(new Position(3,4)).soutAllPositions();
-                    ///////////////////////////////////////////////////////
-
-
                     // check if this move finish the game
                     this.checkIfTheGameTheGameIsFinished();
                     theKing = (King) board[theKing.getPosition().getX()][theKing.getPosition().getY()];
