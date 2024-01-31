@@ -71,9 +71,7 @@ public class Board {
 
         //white king
         position = new Position(5, 5);
-//        board[5][5] = new King(playerOne, new Position(5, 5));
         this.putPieceAtPosition(position, new King(playerOne, position));
-//        boardPositions[5][5] = 1;
         this.addStep(position, 1);
 
         help = 1;
