@@ -72,7 +72,7 @@ public class GameLogic implements PlayableLogic {
         boardPositions[5][9] = 1;
 
 
-        // the defence
+        // the defense
 
         //white king
         board[5][5] = new King(playerOne, new Position(5, 5));
