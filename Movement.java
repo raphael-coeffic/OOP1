@@ -176,7 +176,6 @@ class Movement{
             gameLogic.board.putPieceAtPosition(new Position(pos.getX() + degree, pos.getY()), null);
         if (Objects.equals(direction, "y"))
             gameLogic.board.putPieceAtPosition(new Position(pos.getX(), pos.getY() + degree), null);
-//            gameLogic.board[pos.getX()][pos.getY() + degree] = null;
         return eaten;
     }
 
