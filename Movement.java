@@ -191,7 +191,7 @@ class Movement{
             piece = this.eatRight(pos, gameLogic);
             if (piece != null) eaten.offer(piece);
             piece = this.eatLeft(pos, gameLogic);
-            if (left != null) eaten.offer(piece);
+            if (piece != null) eaten.offer(piece);
             ((Pawn) gameLogic.getPieceAtPosition(pos)).setKills(eaten.size());
             this.deads.addAll(eaten);
             return eaten;
