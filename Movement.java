@@ -32,41 +32,6 @@ class Movement{
         return this.deads;
     }
 
-//    private Piece helpEat(Position pos, String dir, int degree, String direction, GameLogic gameLogic) {
-//        //check if we are on the south border of the board and if there is a piece under us
-//        Position next;
-//        Position nextNext;
-//        if (Objects.equals(dir, "up") && pos.up() != null){
-//            next = pos.up();
-//        }
-//
-//        if (next != null) {
-//            if (next.inTheBoard() && gameLogic.getPieceAtPosition(next) != null) {
-//                //check if the piece one case under our case that is a piece of the other player or null
-//                if (!gameLogic.getPieceAtPosition(next).sameOwner(gameLogic.getPieceAtPosition(pos))) {
-//                    if (!gameLogic.getPieceAtPosition(next).isPawn()) {  // if our neighbor is the king
-//                        this.kingIsDead(gameLogic); // we check if the king is dead
-//                    } else {
-//                        //check if after the piece under our case we have a piece
-//                        if (nextNext != null) {
-//                            if (nextNext.inTheBoard() && gameLogic.getPieceAtPosition(nextNext) != null) {
-//                                if (gameLogic.getPieceAtPosition(nextNext).sameOwner(gameLogic.getPieceAtPosition(pos))) {
-//                                    //eat the piece
-//                                    return this.realEat(pos, next, degree, direction, gameLogic);
-//                                }
-//                            }
-//                            return null;
-//
-//                        }
-//                        //the peace on the up is on the border
-//                        //eat the piece
-//                        return this.realEat(pos, next, degree, direction, gameLogic);
-//                    }
-//                }
-//            }
-//        }
-//        return null;
-//    }
     /**
      * The 4 methods check if we eat a piece in the movement and return the piece that we eat
      */
@@ -218,18 +183,15 @@ class Movement{
     protected Queue<Piece> eat(Position pos, GameLogic gameLogic) {
         if (gameLogic.getPieceAtPosition(pos).isPawn()) {
             Queue<Piece> eaten = new LinkedList<>();
-//            Piece up = this.helpEat(pos, pos.up(), pos.up().up(), -1, "y", gameLogic);
-            Piece up = this.eatUp(pos, gameLogic);
-            if (up != null) eaten.offer(up);
-//            Piece down = this.helpEat(pos, pos.down(), pos.down().down(), 1, "y", gameLogic);
-            Piece down = this.eatDown(pos, gameLogic);
-            if (down != null) eaten.offer(down);
-//            Piece right = this.helpEat(pos, pos.right(), pos.right().right(), 1, "x", gameLogic);
-            Piece right = this.eatRight(pos, gameLogic);
-            if (right != null) eaten.offer(right);
-//            Piece left = this.helpEat(pos, pos.left(), pos.left().left(), -1, "x", gameLogic);
-            Piece left = this.eatLeft(pos, gameLogic);
-            if (left != null) eaten.offer(left);
+            Piece piece;
+            piece = this.eatUp(pos, gameLogic);
+            if (piece != null) eaten.offer(piece);
+            piece = this.eatDown(pos, gameLogic);
+            if (piece != null) eaten.offer(piece);
+            piece = this.eatRight(pos, gameLogic);
+            if (piece != null) eaten.offer(piece);
+            piece = this.eatLeft(pos, gameLogic);
+            if (left != null) eaten.offer(piece);
             ((Pawn) gameLogic.getPieceAtPosition(pos)).setKills(eaten.size());
             this.deads.addAll(eaten);
             return eaten;
